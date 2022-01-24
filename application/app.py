@@ -63,7 +63,6 @@ def get_inbox_replies(inbox_id):
     user_signature = user_signature_generator(data["username"], data["secret"])
     uow = InboxUnitOfWork(session_factory)
     inbox_replies = InboxService(uow.inbox).get_inbox_replies(user_signature, inbox_id=inbox_id)
-    print(inbox_replies)
     return json.dumps((list(map(str, inbox_replies))))
 
 
